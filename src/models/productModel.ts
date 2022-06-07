@@ -28,6 +28,17 @@ const productSchema = new mongoose.Schema(
   }
 );
 
+productSchema.index({ title: "text" }); // Tìm kiếm theo tiêu đề
+
 const Products = mongoose.model("Products", productSchema);
+
+Products.createIndexes({
+  wildcardProjection: {
+    _id: 1,
+    title: 1,
+  },
+});
+
+// Products.createIndexes();
 
 export default Products;
