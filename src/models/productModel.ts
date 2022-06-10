@@ -35,7 +35,7 @@ const Products = mongoose.model("Products", productSchema);
 Products.createIndexes({
   wildcardProjection: {
     _id: 1,
-    title: 1,
+    title: "text",
   },
 });
 
