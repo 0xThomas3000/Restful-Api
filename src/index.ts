@@ -21,7 +21,7 @@ mongoose.connect(
   URI as string,
   {
     autoIndex: false,
-    bufferCommands: false,
+    // bufferCommands: false, // Cannot create the MongoDB Data Schema for the first time of loading
   },
   (err) => {
     if (err) throw err;
