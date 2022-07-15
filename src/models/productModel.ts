@@ -32,13 +32,6 @@ productSchema.index({ title: "text" }); // Tìm kiếm theo tiêu đề
 
 const Products = mongoose.model("Products", productSchema);
 
-Products.createIndexes({
-  wildcardProjection: {
-    _id: 1,
-    title: "text",
-  },
-});
-
-// Products.createIndexes();
+Products.createIndexes({ textIndexVersion: 3 }, () => {});
 
 export default Products;

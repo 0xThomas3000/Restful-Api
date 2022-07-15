@@ -21,6 +21,7 @@ mongoose.connect(
   URI as string,
   {
     autoIndex: false,
+    bufferCommands: false,
   },
   (err) => {
     if (err) throw err;
