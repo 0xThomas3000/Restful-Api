@@ -1,8 +1,9 @@
+import { Request, Response } from "express";
 import Products from "../models/productModel";
 import { APIfeatures } from "../lib/features";
 
 const productCtrl = {
-  getProducts: async (req: any, res: any) => {
+  getProducts: async (req: Request, res: Response) => {
     try {
       const features = new APIfeatures(Products.find(), req.query)
         .paginating()
@@ -23,7 +24,7 @@ const productCtrl = {
       return res.status(500).json({ msg: err.message });
     }
   },
-  getProduct: async (req: any, res: any) => {
+  getProduct: async (req: Request, res: Response) => {
     try {
       const product = await Products.findById(req.params.id);
 
@@ -35,7 +36,7 @@ const productCtrl = {
       return res.status(500).json({ msg: err.message });
     }
   },
-  addProduct: async (req: any, res: any) => {
+  addProduct: async (req: Request, res: Response) => {
     try {
       const { title, price, description, category, image } = req.body;
 
@@ -53,7 +54,7 @@ const productCtrl = {
       return res.status(500).json({ msg: err.message });
     }
   },
-  updateProduct: async (req: any, res: any) => {
+  updateProduct: async (req: Request, res: Response) => {
     try {
       const { title, price, description, category, image } = req.body;
 
@@ -77,7 +78,7 @@ const productCtrl = {
       return res.status(500).json({ msg: err.message });
     }
   },
-  deleteProduct: async (req: any, res: any) => {
+  deleteProduct: async (req: Request, res: Response) => {
     try {
       const product = await Products.findByIdAndDelete(req.params.id);
 

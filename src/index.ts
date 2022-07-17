@@ -15,10 +15,10 @@ app.use(express.json());
 app.use(express.urlencoded());
 
 // Datatbase
-const URI: string | undefined = process.env.MONGODB_URL;
+const URI = process.env.MONGODB_URL as string;
 
 mongoose.connect(
-  URI as string,
+  URI,
   {
     autoIndex: false,
     // bufferCommands: false, // Cannot create the MongoDB Data Schema for the first time of loading

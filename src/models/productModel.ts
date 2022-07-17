@@ -32,6 +32,6 @@ productSchema.index({ title: "text" }); // Tìm kiếm theo tiêu đề
 
 const Products = mongoose.model("Products", productSchema);
 
-Products.createIndexes({ textIndexVersion: 3 }, () => {});
+Products.createIndexes({ textIndexVersion: 3 });
 
 export default Products;
