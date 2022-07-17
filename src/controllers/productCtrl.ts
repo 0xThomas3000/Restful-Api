@@ -11,9 +11,15 @@ const productCtrl = {
         .searching()
         .filtering();
 
+      const counting = new APIfeatures(Products.find(), req.query)
+        .searching()
+        .filtering()
+        .counting();
+
       const result = await Promise.allSettled([
         features.query,
-        Products.countDocuments(), //count number of products.
+        counting.query,
+        // Products.estimatedDocumentCount(), //count number of products.
       ]);
 
       const products = result[0].status === "fulfilled" ? result[0].value : [];

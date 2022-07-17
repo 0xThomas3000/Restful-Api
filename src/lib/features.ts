@@ -57,6 +57,12 @@ export class APIfeatures {
     return this;
   };
 
+  /* Counting based on Search and Filtering */
+  counting() {
+    this.query = this.query.count();
+    return this;
+  }
+
   //this.query = Products.find().find({
   //     {"price":{"$gt":"56.99"}}
   //  }).limit(limit).skip(skip).sort(sort)
